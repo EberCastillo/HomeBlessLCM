@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Fatima</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(65, 110, 76);
+            overflow-x: hidden;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(
+                to right,
+                rgb(65, 110, 76),
+                #697939,
+                #5a6e3f
+            );
+            font-family: Britannic Bold;
+            text-align: center;
+            min-height: 130px;
+            width: 100%;
+            font-size: 50px;
+            color: rgb(211, 175, 55);
+            padding: 50px 20px 20px;
+        }
+
+        /* ================= NAV ================= */
+
+        nav {
+            background-color: rgb(211, 175, 55);
+            color: rgb(0, 0, 0);
+            font-family: "Arial Black", Arial, sans-serif;
+            border: 1px solid #D3AF37;
+            text-align: center;
+            min-height: 50px;
+            width: 100%;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+
+        .nav {
+            width: fit-content;
+            max-width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav > li {
+            position: relative;
+        }
+
+        .nav li a {
+            background-color: #D3AF37;
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 12px;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .nav li a:hover {
+            background-color: #7E8C54;
+        }
+
+        .nav li ul {
+            display: none;
+            position: absolute;
+            min-width: 140px;
+            z-index: 1000;
+            left: 0;
+            top: 100%;
+        }
+
+        .nav li:hover > ul {
+            display: block;
+        }
+
+        /* ================= MAIN ================= */
+
+        main {
+            font-family: Arial, sans-serif;
+            min-height: calc(100vh - 265px);
+            width: 100%;
+            margin-bottom: 5px;
+            display: flex;
+            gap: 15px;
+            padding: 0 5px;
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            background-color: #F0A1AA;
+            font-family: Britannic Bold;
+            border: 3px solid #D3AF37;
+            min-height: 100%;
+            width: 75%;
+            margin-bottom: 5px;
+            padding: 25px;
+            font-size: 25px;
+            border-radius: 10px;
+            overflow-wrap: break-word;
+        }
+
+        section p {
+            line-height: 1.4;
+        }
+
+        /* ================= ASIDE ================= */
+
+        aside {
+            background-color: #F0B7BD;
+            font-family: "Arial Black", Arial, sans-serif;
+            border: 3px solid #D3AF37;
+            text-align: center;
+            min-height: 100%;
+            width: 25%;
+            margin-bottom: 5px;
+            padding: 30px;
+            border-radius: 10px;
+            overflow-wrap: break-word;
+        }
+
+        aside img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ================= IMÁGENES ================= */
+
+        img {
+            max-width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        /* ================= TEXTOS ================= */
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            font-style: italic;
+        }
+
+        h4 {
+            text-align: left;
+        }
+
+        h5 {
+            text-align: right;
+        }
+
+        a {
+            text-decoration: none;
+            color: #5a6e3f;
+            font-family: "Arial Black", Arial, sans-serif;
+            font-style: italic;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background-color: rgb(211, 175, 55);
+            font-family: "Arial Black", Arial, sans-serif;
+            border: 1px solid #FF8DA1;
+            text-align: center;
+            min-height: 80px;
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 15px;
+        }
+
+        /* =====================================================
+           TABLET
+           ===================================================== */
+
+        @media screen and (max-width: 900px) {
+
+            header {
+                font-size: 42px;
+                min-height: 120px;
+                padding-top: 45px;
+            }
+
+            nav {
+                font-size: 18px;
+            }
+
+            main {
+                gap: 10px;
+            }
+
+            section {
+                width: 70%;
+                padding: 20px;
+                font-size: 22px;
+            }
+
+            aside {
+                width: 30%;
+                padding: 20px;
+            }
+
+            img {
+                height: 250px;
+            }
+        }
+
+        /* =====================================================
+           CELULARES
+           ===================================================== */
+
+        @media screen and (max-width: 600px) {
+
+            header {
+                font-size: 32px;
+                min-height: 100px;
+                padding: 35px 10px 15px;
+            }
+
+            nav {
+                min-height: auto;
+                font-size: 16px;
+            }
+
+            .nav {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav > li {
+                width: 100%;
+            }
+
+            .nav li a {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .nav li ul {
+                position: static;
+                width: 100%;
+            }
+
+            .nav li:hover > ul {
+                display: block;
+            }
+
+            .nav li ul li a {
+                background-color: #7E8C54;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+                gap: 5px;
+            }
+
+            section {
+                width: 100%;
+                margin-right: 0;
+                padding: 18px;
+                font-size: 20px;
+            }
+
+            aside {
+                width: 100%;
+                padding: 20px;
+            }
+
+            img {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            h4 {
+                font-size: 18px;
+            }
+
+            h5 {
+                font-size: 16px;
+            }
+
+            footer {
+                font-size: 14px;
+                min-height: 80px;
+            }
+        }
+
+        /* =====================================================
+           CELULARES PEQUEÑOS
+           ===================================================== */
+
+        @media screen and (max-width: 400px) {
+
+            header {
+                font-size: 27px;
+                padding-top: 30px;
+            }
+
+            section {
+                padding: 15px;
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="reg">Home Bless</header>
+
+    <nav>
+        <ul class="nav">
+
+            <li>
+                <a href="#ini">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#">Productos</a>
+
+                <ul>
+                    <li><a href="#pro1">Centros de Mesa</a></li>
+                    <li><a href="#pro2">Decoración</a></li>
+                    <li><a href="#pro3">Fuegos Artificiales</a></li>
+                    <li><a href="#pro4">Mesas y Sillas</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Servicios</a>
+
+                <ul>
+                    <li><a href="#ser1">Transporte</a></li>
+                    <li><a href="#ser2">Comida</a></li>
+                    <li><a href="#ser3">DJ</a></li>
+                    <li><a href="#ser4">Stand de Fotos</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#cont">Contacto</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+
+            <br>
+
+            <h2 id="ini">Quienes somos</h2>
+
+            <p>
+                En esencia de eventos somos una agencia dedicada a crear,
+                planificar y organizar momentos especiales que se convierten
+                en recuerdos inolvidables. Nos caracterizamos por nuestra
+                creatividad, responsabilidad, organización y atención a cada detalle.
+            </p>
+
+            <br>
+
+            <h2>Misión</h2>
+
+            <p>
+                Nuestra misión es planificar, organizar y desarrollar eventos
+                de alta calidad, brindando un servicio responsable, creativo
+                y personalizado.
+            </p>
+
+            <br>
+
+            <h2>Visión</h2>
+
+            <p>
+                Nuestra visión es convertirnos en una agencia de eventos
+                reconocida por su creatividad, profesionalismo, responsabilidad
+                y excelente atención al cliente.
+            </p>
+
+            <br>
+            <hr>
+            <br>
+
+            <h1>Productos</h1>
+
+            <br>
+
+            <h2 id="pro1">Centros de mesa</h2>
+
+            <center>
+                <img
+                    src="https://i.pinimg.com/564x/bd/c1/dc/bdc1dc4e5f58ec005deadcf3f60915e3.jpg"
+                    alt="Centros de mesa">
+            </center>
+
+            <br>
+
+            <h2 id="pro2">Decoración</h2>
+
+            <center>
+                <img
+                    src="https://bodasyweddings.com/wp-content/uploads/2015/07/decoracion-de-salon-de-bodas-con-luces-absolutamente-magico.jpg"
+                    alt="Decoración">
+            </center>
+
+            <br>
+
+            <h2 id="pro3">Fuegos Artificiales</h2>
+
+            <center>
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvBoSbBHAIFIdPgtg68DMP-ynfRpGpo7FuPRMY12aDerx4-X8iG9Egkgxq&s=10"
+                    alt="Fuegos artificiales">
+            </center>
+
+            <br>
+
+            <h2 id="pro4">Mesas y Sillas</h2>
+
+            <center>
+                <img
+                    src="https://primemobiliario.com/wp-content/uploads/2026/05/montaje-pack-mesas-california-sillas-crossback.webp"
+                    alt="Mesas y sillas">
+            </center>
+
+            <br>
+
+            <h5>
+                <a href="#reg">Regresar</a>
+            </h5>
+
+            <br>
+            <hr>
+            <br>
+
+            <h1>Servicios</h1>
+
+            <br>
+
+            <h2 id="ser1">Transporte</h2>
+
+            <br>
+
+            <center>
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMJWfgY9B3WAx95TDKxciT0UElAOIOv7o7sqmNHdWNWCFUWMbChdRH9Tw&s=10"
+                    alt="Transporte">
+            </center>
+
+            <br>
+
+            <h2 id="ser2">Comida</h2>
+
+            <center>
+                <img
+                    src="https://fincatrinidad.com/wp-content/uploads/2020/10/2015-Catering-Menu_Entree_Filet-Mignon-with-Shrimp_1_preview-1024x684.jpeg"
+                    alt="Comida">
+            </center>
+
+            <br>
+
+            <h2 id="ser3">DJ</h2>
+
+            <center>
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWFyv-QUwaazW8xn-uC4zHILl2ZXVjYgNgafyvd1kPcP5vpkqYTsZhEohA&s=10"
+                    alt="DJ">
+            </center>
+
+            <br>
+
+            <h2 id="ser4">Stand de Fotos</h2>
+
+            <center>
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWRLK4enIxt4YHxes_lOgq1UDsKMP5FJn62tbfkGg_MqW2Z9ml8WiS4oNo&s=10"
+                    alt="Stand de fotos">
+            </center>
+
+            <h5>
+                <a href="#reg">Regresar</a>
+            </h5>
+
+        </section>
+
+        <aside>
+
+            <h3>Catálogo</h3>
+
+            <br>
+            <hr>
+            <br>
+
+            <img src="QR Home Bless.jpeg" alt="Catálogo">
+
+            <br>
+            <br>
+
+            <h3>Contenido relacionado</h3>
+
+            <br>
+            <hr>
+            <br>
+
+            <h4>Páginas similares</h4>
+
+            <br>
+
+            <ol>
+
+                <li>
+                    <a
+                        href="https://www.squarespace.com/websites-start?channel=pbr&subchannel=go&campaign=23337823410&subcampaign=191387177513_kwd-1988643730_e&source=&gclsrc=aw.ds&gad_source=1&gad_campaignid=23337823410&gbraid=0AAAAADxS_FL_65ATdWLIrJUw2wBStUopg&gclid=Cj0KCQjwuJLWBhD_ARIsAIBcRUwGbHY3WRknWZShbqO_IyIqrEQA6QEVlLvS8plsRJa-PuHc48LK6yYaAtS8EALw_wcB"
+                        target="_blank">
+                        Squarespace
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://www.terraesperanza.com.gt/"
+                        target="_blank">
+                        Terra Esperanza
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://www.instagram.com/saul_losteria/?hl=es-la"
+                        target="_blank">
+                        Saúl Bistro y L'Osteria
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://www.instagram.com/casaarianagt/?hl=es"
+                        target="_blank">
+                        Casa Ariana
+                    </a>
+                </li>
+
+            </ol>
+
+            <br>
+            <br>
+            <hr>
+            <br>
+
+            <h4>Videos relacionados</h4>
+
+            <br>
+
+            <ol>
+
+                <li>
+                    <a
+                        href="https://youtube.com/shorts/iYAZ_ipeduc?si=t5oMHT10tF3al5yL"
+                        target="_blank">
+                        Montaje de Evento
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://youtube.com/shorts/5DncgqRe1Oc?si=7MNp926Pi1CjaKTI"
+                        target="_blank">
+                        Set Up DJ
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://youtube.com/shorts/I10skGyoopQ?si=bNGueygz2ithRWN8"
+                        target="_blank">
+                        Comida
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://youtube.com/shorts/qIZ6fS9wlPk?si=ze24dl7TQiyNQpTX"
+                        target="_blank">
+                        Fuegos artificiales en Evento
+                    </a>
+                </li>
+
+            </ol>
+
+        </aside>
+
+    </main>
+
+    <footer id="cont">
+
+        e-mail: HomeBless_eventos@gmail.com
+        <br>
+
+        Dirección Zona 1 Villa Nueva
+        <br>
+
+        Teléfono 66359892
+
+    </footer>
+
+</body>
+
+</html>
